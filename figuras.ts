@@ -5,6 +5,8 @@ abstract class Figura {
         this.x = x;
         this.y = y;
     }
+    abstract calcularArea(): number;
+    abstract calcularPerimetro(): number;
 }
 
 class Rectangulo extends Figura {
@@ -57,3 +59,12 @@ const circulo = new Circulo(4,4,6);
 const triangulo = new Triangulo(3,3,5);
 console.log("Áreas de las figuras: " + "rectángulo ->" + rectangulo.calcularArea() + "; círculo -> " + circulo.calcularArea() + "; triángulo -> " + triangulo.calcularArea());
 console.log("Perímetros de las figuras: " + "rectángulo ->" + rectangulo.calcularPerimetro() + "; círculo -> " + circulo.calcularPerimetro() + "; triángulo -> " + triangulo.calcularPerimetro());
+
+let arregloFiguras: Figura[] = [
+    new Rectangulo(4,4,4,4), new Circulo(3,4,6), new Triangulo(4,5,2)
+];
+
+arregloFiguras.forEach(figura => {
+    console.log(figura.calcularArea());
+    console.log(figura.calcularPerimetro());
+});
