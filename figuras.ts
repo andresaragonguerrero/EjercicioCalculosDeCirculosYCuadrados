@@ -1,4 +1,4 @@
-class Figura {
+abstract class Figura {
     readonly x: number;
     readonly y: number;
     constructor (x: number, y: number){
@@ -8,16 +8,18 @@ class Figura {
 }
 
 class Rectangulo extends Figura {
-    longLado: number;
-    constructor (x: number, y: number, longLado: number){
+    z: number;
+    a: number;
+    constructor (x: number, y: number, z: number, a: number){
         super(x,y);
-        this.longLado = longLado;
+        this.z = z;
+        this.a = a;
     }
     calcularArea(): number {
         return this.x * this.y;
     }
     calcularPerimetro(): number {
-        return this.x * 4;
+        return this.x + this.y + this.z + this.a;
     }
 }
 
@@ -50,7 +52,7 @@ class Triangulo extends Figura {
     }
 }
 
-const rectangulo = new Rectangulo(2,2,2);
+const rectangulo = new Rectangulo(2,4,2,4);
 const circulo = new Circulo(4,4,6);
 const triangulo = new Triangulo(3,3,5);
 console.log("Áreas de las figuras: " + "rectángulo ->" + rectangulo.calcularArea() + "; círculo -> " + circulo.calcularArea() + "; triángulo -> " + triangulo.calcularArea());
