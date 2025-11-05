@@ -34,7 +34,7 @@ const cuadrado2 = new Cuadrado(5, 6, 10);
 console.log(`Área del cuadrado 1: ` + cuadrado.mostrarAreaCuadrado());
 console.log(`Perímetro del cuadrado 1: ` + cuadrado.mostrarPerimetroCuadrado());
 console.log(`Área del cuadrado 2: ` + cuadrado2.mostrarAreaCuadrado());
-console.log(`Perímetro del cuadrado 2: ` +cuadrado2.mostrarPerimetroCuadrado());
+console.log(`Perímetro del cuadrado 2: ` + cuadrado2.mostrarPerimetroCuadrado());
 
 // hayar superficie y perímetro
 class Circulo {
@@ -61,3 +61,38 @@ console.log(`Perímetro del círculo 1: ` + circulo.mostrarPerimetroCirculo());
 console.log(`Área del círculo 2: ` + circulo2.mostrarAreaCirculo());
 console.log(`Perímetro del círculo 1: ` + circulo2.mostrarPerimetroCirculo());
 
+// calcular IMC corporal: IMC = peso (kg) / altura² (m²)
+// peso inferior: menos de 18.5
+// peso normal: entre 18.5 y 24.9
+// superior al normal: entre 25 y 29.9
+// obesidad: superior a 30
+class Persona {
+    nombre: string;
+    kilogramos: number;
+    metros: number;
+    constructor(nombre: string, kilogramos: number, metros: number) {
+        this.nombre = nombre;
+        this.kilogramos = kilogramos;
+        this.metros = metros;
+    }
+    calcularIMC() {
+        return this.kilogramos / (Math.pow(this.metros, 2));
+    }
+    mostrarMensaje() {
+
+        const imc = this.calcularIMC();
+
+        if (imc < 18.5) {
+            console.log(this.nombre + " tiene un peso inferior a lo normal " + "(" + imc + ")" + ".");
+        } else if (imc < 24.9) {
+            console.log(this.nombre + " se encuentra en un peso normal " + "(" + imc + ")" + ".");
+        } else if (imc < 29.9) {
+            console.log(this.nombre + " se encuentra en un peso por encima de lo normal " + "(" + imc + ")" + ".");
+        } else {
+            console.log(this.nombre + " padece obesidad " + "(" + imc + ")" + ".");
+        }
+    }
+}
+
+const antonio = new Persona("Antonio", 72, 1.74);
+antonio.mostrarMensaje();
