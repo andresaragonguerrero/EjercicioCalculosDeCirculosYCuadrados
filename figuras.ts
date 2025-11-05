@@ -17,7 +17,7 @@ class Rectangulo extends Figura {
         return this.x * this.y;
     }
     calcularPerimetro(): number {
-        return (2 * this.x) *  (2 * this.y);
+        return (2 * this.x) + (2 * this.y);
     }
 }
 
@@ -64,5 +64,6 @@ arregloFiguras.forEach(figura => {
     console.log(figura.calcularArea());
     console.log(figura.calcularPerimetro());
 });
+
 
 
